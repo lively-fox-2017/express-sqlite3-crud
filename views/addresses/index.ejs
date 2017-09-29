@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Express Contacts-Groups</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>Addresses</h1>
+
+    <table class="table table-striped">
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Street</th>
+          <th>City</th>
+          <th>Zipcode</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <% for (let i = 0; i < addresses.length; i++) { %>
+
+            <tr>
+              <td><%= addresses[i].id %></td>
+              <td><%= addresses[i].street %></td>
+              <td><%= addresses[i].city %></td>
+              <td><%= addresses[i].zipcode %></td>
+              <td>
+                <a href="/addresses/edit/<%= addresses[i].id %>" class="btn btn-sm btn-default">Edit</a>
+                <a href="/addresses/delete/<%= addresses[i].id %>" class="btn btn-sm btn-danger">Delete</a>
+              </td>
+            </tr>
+
+        <% } %>
+
+      </tbody>
+
+    </table>
+
+    <hr>
+
+    <h3>Add an Address</h3>
+    <form action="/addresses" method="POST">
+
+      <div class="row">
+        <div class="col-md-6">
+
+          <div class="form-group">
+            <label for="street">Street</label>
+            <input type="text" name="street" id="street" class="form-control" required autofocus>
+          </div>
+
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" name="city" id="city" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="zipcode">Zipcode</label>
+            <input type="number" name="zipcode" id="zipcode" class="form-control" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+</body>
+</html>
