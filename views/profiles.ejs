@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Profile List</title>
+  </head>
+  <body>
+    <h1>Profile List</h1>
+    <a href="/">Return to Home</a><br><br>
+    <table>
+      <thead>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Options</th>
+      </thead>
+      <tbody>
+        <% data.forEach(rows=>{%>
+        <tr>
+          <td><%=rows.id%></td>
+          <td><%=rows.username%></td>
+          <td><%=rows.password%></td>
+          <td>
+            <a href="/profiles/edit/<%=rows.id%>">Edit</a>
+            <a href="#">|</a>
+            <a onclick="return confirm('Are you sure to delete this data?')" href="/profiles/delete/<%=rows.id%>">Delete</a>
+          </td>
+        </tr>
+        <%})%>
+      </tbody>
+    </table>
+    <br>
+    <form class="" action="/profiles" method="post">
+      Username <br>
+      <input type="text" name="username" placeholder="username"><br>
+      Password <br>
+      <input type="password" name="password" placeholder="password"><br><br>
+      <button type="post" name="button">Add Data</button>
+    </form>
+  </body>
+</html>
