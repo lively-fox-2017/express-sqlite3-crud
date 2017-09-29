@@ -17,11 +17,15 @@
     </tr>
     <%
       for(var i=0;i<dataRows.length;i++){
+        var str = "";
     %>
       <tr align="center">
         <td><%= dataRows[i].id %></td>
         <td><%= dataRows[i].username %></td>
-        <td><%= dataRows[i].password %></td>
+        <% for(var j=0;j<dataRows[i].password.length;j++){
+          str+= '*';
+        }%>
+        <td><%= str %></td>
         <td><a href='/profiles/edit/<%= dataRows[i].id %>'>Edit</a></td>
         <td><a href="/profiles/delete/<%= dataRows[i].id %>">Delete</a></td>
       </tr>
@@ -35,7 +39,7 @@
     <input type="text" name="username" placeholder="Username">
     <br>
     Password :<br>
-    <input type="text" name="password" placeholder="Password">
+    <input type="password" name="password" placeholder="Password">
     <br>
     <input type="submit" value="Submit">
   </form>
