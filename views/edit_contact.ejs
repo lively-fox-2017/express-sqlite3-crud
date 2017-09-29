@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contact Edit</title>
+    <style>
+    p,a{font-size: 14px; margin: 0; padding: 5px;}
+    </style>
+  </head>
+  <body>
+    <h1>Contact<h1>
+      <form action="/contact/edit/<%=data.id%>" method="post">
+          <div>
+            <p>Name</p>
+            <input type="text" name="name" value="<%= data.name%>">
+          </div>
+            <p>Company</p>
+            <input type="text" name="company" value="<%= data.company%>">
+          <div>
+            <p>Phone Number</p>
+            <input type="text" name="tlp_number" value="<%= data.tlp_number %>">
+          </div>
+          <div>
+            <p>Email</p>
+            <input type="text" name="email" value="<%= data.email %>">
+          </div>
+          <a href="/contact">Cancel</a>
+          <button type="submit" name="submit">Update</button>
+      </form>
+  </body>
+</html>

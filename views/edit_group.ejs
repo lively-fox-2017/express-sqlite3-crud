@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Group Edit</title>
+    <style>
+    p,a{font-size: 14px; margin: 0; padding: 5px;}
+    </style>
+  </head>
+  <body>
+    <h1>Group<h1>
+      <form action="/group/edit/<%=data.id%>" method="post">
+          <div>
+            <p>Group Name</p>
+            <input type="text" name="names_of_groups" value="<%= data.names_of_groups %>">
+          </div>
+          <a href="/group">Cancel</a>
+          <button type="submit" name="submit">Update</button>
+      </form>
+  </body>
+</html>

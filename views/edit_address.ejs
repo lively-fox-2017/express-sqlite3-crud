@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Address Edit</title>
+    <style>
+    p,a{font-size: 14px; margin: 0; padding: 5px;}
+    </style>
+  </head>
+  <body>
+    <h1>Address<h1>
+      <form action="/address/edit/<%=data.id%>" method="post">
+          <div>
+            <p>Street</p>
+            <input type="text" name="street" value="<%= data.street%>">
+          </div>
+          <div>
+            <p>City</p>
+            <input type="text" name="city" value="<%= data.city%>">
+          <div>
+            <div>
+              <p>Zipcode</p>
+              <input type="text" name="zipcode" value="<%= data.zipcode %>">
+            <div>
+          <a href="/address">Cancel</a>
+          <button type="submit" name="submit">Update</button>
+      </form>
+  </body>
+</html>
