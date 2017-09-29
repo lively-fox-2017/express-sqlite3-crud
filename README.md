@@ -1,6 +1,6 @@
 # express-sqlite3-crud
-/**
-/** EXPRESS CONTACTS-GROUPS
+
+# EXPRESS CONTACTS-GROUPS
 ---------------------------
 Buatlah sebuah aplikasi sederhana menggunakan Express JS dan SQLITE3 untuk
 menampilkan list Contact, Group, Addresses dan Profiles menambah data Contact, Group, Addresses dan Profiles ,
@@ -20,31 +20,32 @@ Structure table:
 
 ## Release 1 - Basic Routing for Contacts dan Groups
 Buatlah sejumlah route berikut dan tampilkan melalui view engine ejs<br />
-----------------------------------------------------------------------<br />
-METHOD | ROUTE                | KETERANGAN<br />
-----------------------------------------------------------------------<br />
-GET    | /contacts               | Menampilkan semua data contacts<br />
-POST   | /contacts               | Menerima input contact<br />
-GET    | /contacts/edit/:id      | Menampilkan data contact spesifik untuk diubah<br />
-POST   | /contacts/edit/:id      | Menerima data form untuk update contact<br />
-GET    | /contacts/delete/:id    | Menghapus data contact berdasarkan id<br />
-GET    | /groups                 | Menampilkan semua data groups<br />
-POST   | /groups                 | Menerima data form untuk input group<br />
-GET    | /groups/edit/:id        | Menampilkan data group spesifik untuk diubah<br />
-POST   | /groups/edit/:id        | Menerima data form untuk update group<br />
-GET    | /groups/delete/:id      | Menghapus data group berdasarkan id<br />
-GET    | /addresses              | Menampilkan semua data addresses<br />
-POST   | /addresses              | Menerima data form untuk input address<br />
-GET    | /addresses/edit/:id     | Menampilkan data address spesifik untuk diubah<br />
-POST   | /addresses/edit/:id     | Menerima data form untuk update address<br />
-GET    | /addresses/delete/:id   | Menghapus data address berdasarkan id<br />
-GET    | /profiles              | Menampilkan semua data profiles<br />
-POST   | /profiles              | Menerima data form untuk input profile<br />
-GET    | /profiles/edit/:id     | Menampilkan data profile spesifik untuk diubah<br />
-POST   | /profiles/edit/:id     | Menerima data form untuk update profile<br />
-GET    | /profiles/delete/:id   | Menghapus data profile berdasarkan id<br />
+
+|METHOD | ROUTE                   | KETERANGAN                                          |
+|-------|:------------------------|:-----------------------------------------------------
+|GET    | /contacts               | Menampilkan semua data contacts                     |
+|POST   | /contacts               | Menerima input contact                              |
+|GET    | /contacts/edit/:id      | Menampilkan data contact spesifik untuk diubah      |
+|POST   | /contacts/edit/:id      | Menerima data form untuk update contact             |
+|GET    | /contacts/delete/:id    | Menghapus data contact berdasarkan id               |
+|GET    | /groups                 | Menampilkan semua data groups                       |
+|POST   | /groups                 | Menerima data form untuk input group                |
+|GET    | /groups/edit/:id        | Menampilkan data group spesifik untuk diubah        |
+|POST   | /groups/edit/:id        | Menerima data form untuk update group               |
+|GET    | /groups/delete/:id      | Menghapus data group berdasarkan id                 |
+|GET    | /addresses              | Menampilkan semua data addresses                    |
+|POST   | /addresses              | Menerima data form untuk input address              |
+|GET    | /addresses/edit/:id     | Menampilkan data address spesifik untuk diubah      |
+|POST   | /addresses/edit/:id     | Menerima data form untuk update address             |
+|GET    | /addresses/delete/:id   | Menghapus data address berdasarkan id               |
+|GET    | /profiles               | Menampilkan semua data profiles                     |
+|POST   | /profiles               | Menerima data form untuk input profile              |
+|GET    | /profiles/edit/:id      | Menampilkan data profile spesifik untuk diubah      |
+|POST   | /profiles/edit/:id      | Menerima data form untuk update profile             |
+|GET    | /profiles/delete/:id    | Menghapus data profile berdasarkan id               |
+
 <br />
 
 ## Release 2
 Buat CRUD untuk addresses, profiles dengan routing yang rapih.
-**/
+
