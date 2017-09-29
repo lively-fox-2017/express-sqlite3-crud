@@ -13,10 +13,24 @@ table pada database. Tentukan column mana saja yang akan di set unique.
 kali, tidak error
 
 Structure table:
-* Contacts: id type integer, name type string, company type string, telp_number type string, email type string
-* Groups: id type integer, name_of_group type string
-* Profile: id type integer, username type string, password type string
-* Addresses: id type integer, street type string, city type string, zipcode type integer
+* Contacts: 
+  - attribute id ber-type integer
+  - attribute name ber-type string
+  - attribute company ber-type string
+  - attribute telp_number ber-type string
+  - attribute email ber-type string
+* Groups: 
+  - attribute id ber-type integer
+  - attribute name_of_group ber-type string
+* Profile: 
+  - attribute id ber-type integer
+  - attribute username ber-type string
+  - attribute password ber-type string
+* Addresses: 
+  - attribute id ber-type integer
+  - attribute street ber-type string
+  - attribute city ber-type string 
+  - attribute zipcode ber-type integer
 
 ## Release 1 - Basic Routing for Contacts dan Groups
 Buatlah sejumlah route berikut dan tampilkan melalui view engine ejs<br />
@@ -33,6 +47,15 @@ Buatlah sejumlah route berikut dan tampilkan melalui view engine ejs<br />
 |GET    | /groups/edit/:id        | Menampilkan data group spesifik untuk diubah        |
 |POST   | /groups/edit/:id        | Menerima data form untuk update group               |
 |GET    | /groups/delete/:id      | Menghapus data group berdasarkan id                 |
+
+
+<br />
+
+## Release 2 - Basic Routing for Addresses dan Profiles
+Buatlah sejumlah route berikut dan tampilkan melalui view engine ejs<br />
+
+|METHOD | ROUTE                   | KETERANGAN                                          |
+|-------|:------------------------|:-----------------------------------------------------
 |GET    | /addresses              | Menampilkan semua data addresses                    |
 |POST   | /addresses              | Menerima data form untuk input address              |
 |GET    | /addresses/edit/:id     | Menampilkan data address spesifik untuk diubah      |
@@ -43,9 +66,4 @@ Buatlah sejumlah route berikut dan tampilkan melalui view engine ejs<br />
 |GET    | /profiles/edit/:id      | Menampilkan data profile spesifik untuk diubah      |
 |POST   | /profiles/edit/:id      | Menerima data form untuk update profile             |
 |GET    | /profiles/delete/:id    | Menghapus data profile berdasarkan id               |
-
-<br />
-
-## Release 2
-Buat CRUD untuk addresses, profiles dengan routing yang rapih.
 
