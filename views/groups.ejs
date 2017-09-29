@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Groups</title>
+</head>
+<body>
+  <table style="width:50%; border:1px solid">
+    <tr style="border:2px solid">
+      <th>ID</th>
+      <th>Name Group</th> 
+    </tr>
+      <% for(let data = 0; data < dataJsonGroups.length; data++) { %>
+    <tr>
+      <td><%= dataJsonGroups[data].id %></td>
+      <td><%= dataJsonGroups[data].name_of_group %></td>
+      <td><a href='/groups/edit/<%= dataJsonGroups[data].id %>'>Edit</a></td>
+      <td><a href='/groups/delete/<%= dataJsonGroups[data].id %>'>Delete</a></td>
+    </tr>
+      <% } %>
+  </table> 
+  <form action="/groups" method="post">
+    Name: <input type="text" name="nama_group"><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

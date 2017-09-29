@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Addresses</title>
+</head>
+<body>
+  <table style="width:50%; border:1px solid">
+    <tr style="border:2px solid">
+      <th>ID</th>
+      <th>Jalan</th> 
+      <th>Kota</th> 
+      <th>Zip Code</th> 
+    </tr>
+      <% for(let data = 0; data < dataJsonAddresses.length; data++) { %>
+    <tr>
+      <td><%= dataJsonAddresses[data].id %></td>
+      <td><%= dataJsonAddresses[data].street %></td>
+      <td><%= dataJsonAddresses[data].city %></td>
+      <td><%= dataJsonAddresses[data].zipcode %></td>
+      <td><a href='/addresses/edit/<%= dataJsonAddresses[data].id %>'>Edit</a></td>
+      <td><a href='/addresses/delete/<%= dataJsonAddresses[data].id %>'>Delete</a></td>
+    </tr>
+      <% } %>
+  </table> 
+  <form action="/addresses" method="post">
+    Jalan: <input type="text" name="street"><br>
+    Kota: <input type="text" name="city"><br>
+    Zip Code: <input type="text" name="zipcode"><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

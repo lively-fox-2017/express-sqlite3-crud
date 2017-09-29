@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contacts</title>
+</head>
+<body>
+  <h1>Ini Contacts</h1>
+  <table style="width:50%; border:1px solid">
+    <tr style="border:2px solid">
+      <th>ID</th>
+      <th>Name</th> 
+      <th>Company</th>
+      <th>Phone</th> 
+      <th>Email</th>
+    </tr>
+      <% for(let data = 0; data < dataJsonContact.length; data++) { %>
+    <tr>
+      <td><%= dataJsonContact[data].id %></td>
+      <td><%= dataJsonContact[data].nama %></td> 
+      <td><%= dataJsonContact[data].company %></td>
+      <td><%= dataJsonContact[data].telp_number %></td> 
+      <td><%= dataJsonContact[data].email %></td>
+      <td><a href='/contacts/edit/<%= dataJsonContact[data].id %>'>Edit</a></td>
+      <td><a href='/contacts/delete/<%= dataJsonContact[data].id %>'>Delete</a></td>
+    </tr>
+      <% } %>
+  </table> 
+  <form action="/contacts" method="post">
+    Name: <input type="text" name="nama"><br>
+    Company: <input type="text" name="company"><br>
+    Telepon: <input type="text" name="phone"><br>
+    Email: <input type="text" name="email"><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
