@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="menu">
+        <a href="contacts">Contact</a>
+        <a href="groups">Group</a>
+        <a href="profiles">Profile</a>
+        <a href="addresses">Address</a>
+    </div>
+    <div id="main-table">
+        <table style="width:80%" border="1">
+            <tr>
+                <th>ID</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Zipcode</th>
+                <th colspan="2">Activity</th>
+            </tr>
+            <% for(var i=0; i< dataRow.length; i++)  {%>
+                <tr>
+                    <td>
+                        <%=dataRow[i].id %>
+                    </td>
+                    <td>
+                        <%=dataRow[i].street %>
+                    </td>
+                    <td>
+                        <%=dataRow[i].city %>
+                    </td>
+                    <td>
+                        <%=dataRow[i].zipcode %>
+                    </td>
+                    <td>
+                        <a href="/addresses/edit/<%=dataRow[i].id%>">Edit</a>
+                    </td>
+                    <td><a href="/addresses/delete/<%=dataRow[i].id%>">Delete</a></td>
+                </tr>
+                <%}%>
+        </table>
+    </div>
+
+    <div id="form-input">
+        <form action="/addresses" method="post">
+            <br> Street : 
+            <br>
+            <input type="text" name="street"> <br> City :
+            <br>
+            <input type="text" name="city"><br> Zipcode:
+            <br>
+            <input type="text" name="zipcode"> <br>
+            <br>
+            <input type="submit" value="Save">
+        </form>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="menu">
+        <a href="contacts">Contact</a>
+        <a href="groups">Group</a>
+        <a href="profiles">Profile</a>
+        <a href="addresses">Address</a>
+    </div>
+
+    <div id="main-table">
+        <table style="width:80%" border="1 black solid">
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th colspan="2">Activity</th>
+            </tr>
+            <% for(var i=0; i< dataRow.length; i++)  {%>
+                <tr>
+                    <td>
+                        <%=dataRow[i].id %>
+                    </td>
+                    <td>
+                        <%=dataRow[i].username %>
+                    </td>
+                    <td>
+                        <%=dataRow[i].password %>
+                    </td>
+                    <td>
+                        <a href="/profiles/edit/<%=dataRow[i].id%>">Edit</a>
+                    </td>
+                    <td><a href="/profiles/delete/<%=dataRow[i].id%>">Delete</a></td>
+                </tr>
+                <%}%>
+        </table>
+    </div>
+
+    <div id="form-input">
+        <form action="/profiles" method="post">
+            <br> Username :
+            <br>
+            <input type="text" name="username"> <br> Password:
+            <br>
+            <input type="text" name="password"><br>
+            <br>
+            <input type="submit" value="Save">
+        </form>
+
+    </div>
+
+</body>
+
+</html>
