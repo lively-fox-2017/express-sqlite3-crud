@@ -5,8 +5,8 @@ db.serialize(function() {
 
   // Contacts
   db.run(`INSERT INTO contacts (name, company, phone_number, email) VALUES ('Dimitri Wahyudiputra', 'ZXCV', '081234567890', 'deathmitri@gmail.com')`);
-  db.run(`INSERT INTO contacts (name, company, phone_number, email) VALUES ('Alexei Wahyudiputra', 'ZXCV', '081234567890', 'alexei@gmail.com')`);
-  db.run(`INSERT INTO contacts (name, company, phone_number, email) VALUES ('Alexander Wahyudi', 'ZXCV', '081234567890', 'alexander@gmail.com')`);
+  db.run(`INSERT INTO contacts (name, company, phone_number, email) VALUES ('Alexei Wahyudiputra', 'ZXCV', '081234567891', 'alexei@gmail.com')`);
+  db.run(`INSERT INTO contacts (name, company, phone_number, email) VALUES ('Alexander Wahyudi', 'ZXCV', '081234567892', 'alexander@gmail.com')`);
 
   // Groups
   db.run(`INSERT INTO groups (name_of_group) VALUES ('Smoking Gang')`);

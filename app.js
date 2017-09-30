@@ -65,7 +65,9 @@ app.post('/contacts/edit/:id', function(req, res) {
 
     } else {
 
-      db.exec(`UPDATE contacts SET name='${req.body.name}', company='${req.body.company}', phone_number='${req.body.phone_number}', email='${req.body.email}' WHERE id=${req.params.id}`);
+      db.exec(`UPDATE contacts SET name='${req.body.name}', company='${req.body.company}', phone_number='${req.body.phone_number}', email='${req.body.email}' WHERE id=${req.params.id}`, function(err) {
+        if (err) console.log(err);
+      });
 
       res.redirect('/contacts');
 
@@ -77,7 +79,9 @@ app.post('/contacts/edit/:id', function(req, res) {
 
 app.get('/contacts/delete/:id', function(req, res) {
 
-  db.exec(`DELETE FROM contacts WHERE id=${req.params.id}`);
+  db.exec(`DELETE FROM contacts WHERE id=${req.params.id}`, function(err) {
+    if (err) console.log(err);
+  });
 
   res.redirect('/contacts');
 
@@ -98,7 +102,9 @@ app.get('/groups', function(req, res) {
 
 app.post('/groups', function(req, res) {
 
-  db.exec(`INSERT INTO groups (name_of_group) VALUES ('${req.body.name_of_group}')`);
+  db.exec(`INSERT INTO groups (name_of_group) VALUES ('${req.body.name_of_group}')`, function (err) {
+    if (err) console.log(err);
+  });
 
   res.redirect('/groups');
 
@@ -126,7 +132,9 @@ app.post('/groups/edit/:id', function(req, res) {
       res.redirect('/groups');
     } else {
 
-      db.exec(`UPDATE groups SET name_of_group='${req.body.name_of_group}' WHERE id=${req.params.id}`);
+      db.exec(`UPDATE groups SET name_of_group='${req.body.name_of_group}' WHERE id=${req.params.id}`, function(err) {
+        if (err) console.log(err);
+      });
 
       res.redirect('/groups');
 
@@ -138,7 +146,9 @@ app.post('/groups/edit/:id', function(req, res) {
 
 app.get('/groups/delete/:id', function(req, res) {
 
-  db.exec(`DELETE FROM groups WHERE id=${req.params.id}`);
+  db.exec(`DELETE FROM groups WHERE id=${req.params.id}`, function(err) {
+    if (err) console.log(err);
+  });
 
   res.redirect('/groups');
 
@@ -160,7 +170,9 @@ app.get('/addresses', function(req, res) {
 
 app.post('/addresses', function(req, res) {
 
-  db.exec(`INSERT INTO addresses (street, city, zipcode) VALUES ('${req.body.street}', '${req.body.city}', ${req.body.zipcode})`);
+  db.exec(`INSERT INTO addresses (street, city, zipcode) VALUES ('${req.body.street}', '${req.body.city}', ${req.body.zipcode})`, function(err) {
+    if (err) console.log(err);
+  });
 
   res.redirect('/addresses');
 
@@ -188,7 +200,9 @@ app.post('/addresses/edit/:id', function(req, res) {
       res.redirect('/addresses');
     } else {
 
-      db.exec(`UPDATE addresses SET street='${req.body.street}', city='${req.body.city}', zipcode=${req.body.zipcode} WHERE id=${req.params.id}`);
+      db.exec(`UPDATE addresses SET street='${req.body.street}', city='${req.body.city}', zipcode=${req.body.zipcode} WHERE id=${req.params.id}`, function(err) {
+        if (err) console.log(err);
+      });
 
       res.redirect('/addresses');
 
@@ -200,7 +214,9 @@ app.post('/addresses/edit/:id', function(req, res) {
 
 app.get('/addresses/delete/:id', function(req, res) {
 
-  db.exec(`DELETE FROM addresses WHERE id=${req.params.id}`);
+  db.exec(`DELETE FROM addresses WHERE id=${req.params.id}`, function(err) {
+    if (err) console.log(err);
+  });
 
   res.redirect('/addresses');
 
@@ -222,7 +238,9 @@ app.get('/profiles', function(req, res) {
 
 app.post('/profiles', function(req, res) {
 
-  db.exec(`INSERT INTO profiles (username, password) VALUES ('${req.body.username}', '${req.body.password}')`);
+  db.exec(`INSERT INTO profiles (username, password) VALUES ('${req.body.username}', '${req.body.password}')`, function(err) {
+    if (err) console.log(err);
+  });
 
   res.redirect('/profiles');
 
@@ -250,7 +268,9 @@ app.post('/profiles/edit/:id', function(req, res) {
       res.redirect('/profiles');
     } else {
 
-      db.exec(`UPDATE profiles SET username='${req.body.username}', password='${req.body.password}' WHERE id=${req.params.id}`);
+      db.exec(`UPDATE profiles SET username='${req.body.username}', password='${req.body.password}' WHERE id=${req.params.id}`, function(err) {
+        if (err) console.log(err);
+      });
 
       res.redirect('/profiles');
 
@@ -262,7 +282,9 @@ app.post('/profiles/edit/:id', function(req, res) {
 
 app.get('/profiles/delete/:id', function(req, res) {
 
-  db.exec(`DELETE FROM profiles WHERE id=${req.params.id}`);
+  db.exec(`DELETE FROM profiles WHERE id=${req.params.id}`, function(err) {
+    if (err) console.log(err);
+  });
 
   res.redirect('/profiles');
 
