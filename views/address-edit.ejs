@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Express Contacts-Groups</title>
+</head>
+<body>
+  <% 
+  const address = record;
+  const id = address.id;
+  const street = address.street;
+  const city = address.city;
+  const zipcode = address.zipcode;
+  %>
+  <h3>Edit Address</h3>
+
+  <form action = "/addresses/edit/<%= id %>" method="POST">
+      Street:<br>
+      <input type = "text" name = "street" value= "<%= street %>">
+      <br>
+      City:<br>
+      <input type = "text" name = "city" value= "<%= city %>">
+      <br>
+      Zipcode:<br>
+      <input type = "text" name = "zipcode" value= "<%= zipcode %>">
+      <br>
+      <br>
+      <input type = "submit" value = "Submit">
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Express Contacts-Groups</title>
+</head>
+<body>
+  <% 
+  const profile = record;
+  const id = profile.id;
+  const username = profile.username;
+  const password = profile.password;
+  %>
+  <h3>Edit Profile: <%= username %></h3>
+
+  <form action = "/profiles/edit/<%= id %>" method="POST">
+      Username:<br>
+      <input type = "text" name = "username" value= "<%= username %>">
+      <br>
+      Password:<br>
+      <input type = "text" name = "password" value= "<%= password %>">
+      <br>
+      <br>
+      <input type = "submit" value = "Submit">
+  </form>
+
+</body>
+</html>

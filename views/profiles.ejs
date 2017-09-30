@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Express Contacts-Groups</title>
+	<style>
+		table {
+			width: 62.8%;
+		}
+		th, td {
+		    border: 1px solid black;
+		}
+		td {
+			font-size: 12px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<% 
+	const profiles = records;
+	%>
+	<a href="/">Home</a>
+	<h2>Profiles</h2>
+
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Username</th>
+			<th>Password</th> 
+		</tr>
+		<%
+		profiles.forEach( profile => {
+		%>
+		<tr>
+			<td><%= profile.id %></td>
+			<td><%= profile.username %></td>
+			<td><%= profile.password %></td>
+			<td><a href="/profiles/edit/<%= profile.id %>">Edit</a></td>
+			<td><a href="/profiles/delete/<%= profile.id %>">Delete</a></td>
+		</tr>
+		<%
+		});
+		%>
+	</table>
+	
+	<br>
+	<br>
+	
+	<h2>Create New Profile</h2>
+	<form action = "/profiles" method="POST">
+  		Username:<br>
+  		<input type = "text" name = "username">
+  		<br>
+  		Password:<br>
+  		<input type = "text" name = "password">
+  		<br>
+  		<br>
+  		<input type = "submit" value = "Submit">
+	</form>
+
+</body>
+</html>
