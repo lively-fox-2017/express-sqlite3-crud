@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= title %></title>
+</head>
+<body>
+
+  <h3>Welcome, ?</h3>
+
+  <form class="" action="/addresses/edit/<%= data.id %>" method="post" style="margin-top:20px">
+    <table>
+      <tr>
+        <td>Street</td>
+        <td>
+          <input type="text" name="street" value="<%= data.street %>">
+        </td>
+      </tr>
+      <tr>
+        <td>City</td>
+        <td>
+          <input type="text" name="city" value="<%= data.city %>">
+        </td>
+      </tr>
+      <tr>
+        <td>Zipcode</td>
+        <td>
+          <input type="text" name="zipcode" value="<%= data.zipcode %>">
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="submit" name="" value="Save">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <br>
+
+  <a href="/addresses"> << back to Addresses </a>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= title %></title>
+</head>
+<body>
+
+  <h2>Welcome, ?</h2>
+
+  <form class="" action="/profile/edit/<%= data.id %>" method="post" style="margin-top:20px">
+    <table>
+      <tr>
+        <td>Username</td>
+        <td>
+          <input type="text" name="user" value="<%= data.username %>">
+        </td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td>
+          <input type="password" name="pass" value="<%= data.password %>">
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <input type="submit" name="" value="save">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <br>
+
+  <a href="/profile"> << back to profile </a>
+
+</body>
+</html>
