@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PROFILE</title>
+  </head>
+  <body>
+    <h1>PROFILE</h1>
+    <!-- Table -->
+    <table border="1px solid gray">
+      <thead>
+      	<tr>
+      	  <th>ID</th>
+      	  <th>Username</th>
+      	  <th>Password</th>
+      	  <th>Options</th>
+      	</tr>
+      </thead>
+      <tbody>
+      	<% for (let i = 0; i < profile.length; i++) { %>
+      	<tr>
+      	  <td><%= profile[i].id %></td>
+      	  <td><%= profile[i].username %></td>
+      	  <td><%= profile[i].password %></td>
+      	  <td>
+      	  	<a href="/profile/edit/<%= profile[i].id%>">Edit</a>
+      	  	<a href="/profile/delete/<%= profile[i].id%>">Delete</a>
+      	  </td>
+      	</tr>
+      	<% } %>
+      </tbody>
+    </table>
+
+    <!-- Form -->
+    <form action="/profile" method="POST">
+      Username:<br>
+      <input type="text" name="username" value="">
+      <br>
+      Password:<br>
+      <input type="password" name="password" value="">
+      <br><br>
+      <input type="submit" value="Submit">
+    </form> 
+  </body>
+</html>
