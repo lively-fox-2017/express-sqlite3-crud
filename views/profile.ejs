@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    table{
+      border:1;
+      width: 100%;
+    }
+    th,td{
+      text-align: left;
+      border: black;
+      padding: 8px;
+    }
+    h2{
+      text-align: center;
+    }
+    </style>
+  </head>
+  <h2>Profile</h2>
+  <body>
+    <a href="/">Back to Home</a><br>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <%for(var i=0;i < data.length;i++){%>
+      <tbody>
+            <td><%=data[i].id%></td>
+            <td><%=data[i].username%></td>
+            <td><%=data[i].password%></td>
+            <th>
+              <a href="/profile/edit/<%=data[i].id%>">Edit</a>
+              <a href="/profile/delete/<%=data[i].id%>">Delete</a>
+            </th>
+          <%}%>
+      </tbody>
+        <form action="/profile" method="POST">
+        <th>Username:<br>
+        <input type="text" name="username" placeholder="username">
+        <br></th>
+        <th>Password:<br>
+        <input type="text" name="password" placeholder="username">
+        <br></th>
+        <th><input type="submit" value="Submit"></th>
+        </form>
+    </table>
+
+  </body>
+</html>

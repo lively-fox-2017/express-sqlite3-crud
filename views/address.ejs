@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style>
+    table{
+      border:1;
+      width: 50%;
+    }
+    th,td{
+      text-align: left;
+      border: black;
+      padding: 8px;
+    }
+    h2{
+      text-align: center;
+    }
+  </style>
+
+  <h2>Address</h2>
+  <body>
+    <a href="/">Back to Home</a><br>
+    <table>
+      <thead>
+        <th>ID</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>Zipcode</th>
+        <th>Action</th>
+      </thead>
+      <%for(var i=0;i < data.length;i++){%>
+        <tbody>
+          <td><%=data[i].id%></td>
+          <td><%=data[i].street%></td>
+          <td><%=data[i].city%></td>
+          <td><%=data[i].zipcode%></td>
+          <th>
+            <a href="/address/edit/<%=data[i].id%>">Edit</a>
+            <a href="/address/delete/<%=data[i].id%>">Delete</a>
+          </th>
+        </tbody>
+      <%}%>
+      <form action="/address" method="POST">
+          <th>Street:<br>
+          <input type="text" name="street" placeholder="Street">
+          <br></th>
+          <th>City:<br>
+          <input type="text" name="city" placeholder="City">
+          <br></th>
+          <th>Zipcode:<br>
+          <input type="text" name="zipcode" placeholder="Zipcode">
+          <br></th>
+        <th><br><input type="submit" value="Submit"></th>
+      </form>
+    </table>
+  </body>
+</html>
