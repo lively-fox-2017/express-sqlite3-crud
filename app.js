@@ -113,14 +113,86 @@ app.get('/groups/delete/:id', (req,res) =>{
 })
 
 
-//*** addresses page
+//*** addresses page // read
 app.get('/addresses',(req,res) =>{
-	res.render('addresses')
+	db.all('select * from Addresses',(err,row) => {
+		if(err){
+			console.log(`db load error from Addresses`)
+		}else{
+			res.render('Addresses',{dataJsonAddresses:row})
+		}
+	})
 })
 
-// profiles page
+// addresses page // create
+app.post('/addresses',(req,res) => {
+	db.run(`insert into Addresses(street, city, zipcode) VALUES ('${req.body.street}','${req.body.city}','${req.body.zipcode}')`)
+	res.redirect('addresses')
+})
+
+// addresses page // update => ambil edit
+app.get('/addresses/edit/:id',(req,res)=>{
+	db.all(`select * from Addresses where id="${req.param('id')}"`, function(err, row){
+		//console.log(row)
+		res.render('addresses-edit',{dataJsonAddresses:row})
+	})
+})
+
+// addresses page // update => hasil edit
+app.post('/addresses/edit/:id',(req,res) => {
+	// update table-name SET column-name = '${value}', column-name = '${value}' where condition
+	db.all(`update Addresses set street = '${req.body.street}',city = '${req.body.city}',zipcode = '${req.body.zipcode}' where id='${req.param('id')}'`, function(err,row){
+		res.redirect('../../addresses')
+	})
+})
+
+// addresses page // delete
+app.get('/addresses/delete/:id',(req,res) => {
+	db.all(`delete from Addresses where id="${req.param('id')}"`,(err,row) =>{
+		console.log('deleted from Addresses')
+		res.redirect('../../addresses')
+	})
+})
+
+//*** profiles page // read
 app.get('/profiles',(req,res) =>{
-	res.render('profiles')
+	db.all('select * from Profile',(err,row) => {
+		if(err){
+			console.log(`db load error from Profile`)
+		}else{
+			res.render('profiles',{dataJsonProfile:row})
+		}
+	})
+})
+
+// profiles page // create
+app.post('/profiles',(req,res) => {
+	db.run(`insert into Profile(username, password) VALUES ('${req.body.user_name}','${req.body.pass_word}')`)
+	res.redirect('profiles')
+})
+
+// profiles page // update => ambil edit
+app.get('/profiles/edit/:id',(req,res)=>{
+	db.all(`select * from Profile where id="${req.param('id')}"`, function(err, row){
+		//console.log(row)
+		res.render('profiles-edit',{dataJsonProfile:row})
+	})
+})
+
+// profiles page // update => hasil edit
+app.post('/profiles/edit/:id',(req,res) => {
+	// update table-name SET column-name = '${value}', column-name = '${value}' where condition
+	db.all(`update Profile set username = '${req.body.username}',password = '${req.body.password}' where id='${req.param('id')}'`, function(err,row){
+		res.redirect('../../profiles')
+	})
+})
+
+// profiles page // delete
+app.get('/profiles/delete/:id',(req,res) => {
+	db.all(`delete from Profile where id="${req.param('id')}"`,(err,row) =>{
+		console.log('deleted from Profile')
+		res.redirect('../../profiles')
+	})
 })
 
 // express SERV

@@ -29,11 +29,30 @@
         </div>
 
         <table >
-
+          <tr>
+            <th>ID</th>
+            <th>USERNAME</th>
+            <th>PASSWORD</th>
+            <th></th>
+            <th></th>
+          </tr>
+          <% for(let data=0; data<dataJsonProfile.length; data++) {%>
+            <tr>
+              <td><%= dataJsonProfile[data].id %></td>
+              <td><%= dataJsonProfile[data].username %></td>
+              <td><%= dataJsonProfile[data].password %></td>
+              <td><a style="text-decoration: none;" href='profiles/edit/<%= dataJsonProfile[data].id %>'>Edit</a></td>
+              <td><a style="text-decoration: none;" href='profiles/delete/<%= dataJsonProfile[data].id %>'>Delete</a></td>
+            </tr>
+          <%}%>
         </table>
 
       <div style="margin-top:50px; width: 80%;">
-
+        <form action="/profiles" method="post">
+        Username: <input type="text" name="user_name"><br>
+        Password: <input type="text" name="pass_word"><br>
+        <input type="submit" value="Submit">
+        </form>
       </div>
 
   </div>
