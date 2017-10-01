@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>address</title>
+  </head>
+  <body>
+    <h1>HALAMAN ADDRESSES</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Street</th>
+          <th>City</th>
+          <th>ZipCode</th>
+        </tr>
+      </thead>
+    </tbody>
+      <%data.forEach (row=> {%>
+      <tr>
+        <td><%= row.id%></td>
+        <td><%= row.street%></td>
+        <td><%= row.city%></td>
+        <td><%= row.zipcode%></td>
+        <td>
+          <a href="addresses/edit/<%=row.id%>">EDIT</a>
+          <a href="addresses/delete/<%=row.id%>">DELETE</a>
+        </td>
+      </tr>
+    <%})%>
+  </tbody>
+    </table>
+    <form action="/addresses" method="POST">
+      <input type="text" name=street placeholder=Street>
+      <input type="text" name=city placeholder="City">
+      <input type="text" name=zipcode placeholder="Zipcode">
+      <input type="submit" name="" value="submit">
+    </form>
+  </body>
+</html>
