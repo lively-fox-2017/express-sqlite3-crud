@@ -1,0 +1,59 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>CRUD</h1>
+            <p>Contact Person</p>
+            <table style="width:100%">
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Company</th>
+                <th>Telp Number</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+            
+                <% temp.forEach(function(temps) { %>
+                <tr>
+                <td><%= temps.id%></td>
+                <td><%= temps.name%></td>
+                <td><%= temps.company%></td>
+                <td><%= temps.telp%></td>
+                <td><%= temps.email%></td>
+                <td>
+                    <a href="/deleteContact/<%= temps.id%>">Delete</a> 
+                    <a href="/editContact/<%= temps.id%>">Edit</a>
+                </td>
+                </tr>
+                <% }); %>
+            </table>
+        </div>
+        <div>
+            <form action="/newcontact" method="POST">
+                <input type="text" placeholder="name" name="name">
+                <input type="text" placeholder="company" name="company">
+                <input type="text" placeholder="telp" name="telp">
+                <input type="text" placeholder="email" name="email">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

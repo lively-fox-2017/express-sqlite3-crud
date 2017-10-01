@@ -1,0 +1,55 @@
+<!-- views/pages/about.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="row">
+                <div class="jumbotron">
+                    <h1>CRUD</h1>
+                    <p>Contact Person</p>
+
+                    <table style="width:100%">
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Action</th>
+                        </tr>
+                        <% temp.forEach(function(temps) { %>
+                        <tr>
+                            <td><%= temps.id%></td>
+                            <td><%= temps.username%></td>
+                            <td><%= temps.password%></td>
+                            <td>
+                                <a href="/deleteProfile/<%= temps.id%>">Delete</a>
+                                <a href="/editProfile/<%= temps.id%>">Edit</a> 
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </table>
+                </div>
+            </div>
+            <div>
+            <form action="/newprofile" method="POST">
+                <input type="text" placeholder="username" name="username">
+                <input type="text" placeholder="password" name="password">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>
