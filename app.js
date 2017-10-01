@@ -38,8 +38,15 @@ app.post('/contacts', function (req, res) {
 })
 
 app.get('/contacts/edit/:id',function(req,res){
-	res.render('editContact.ejs');
-	let idContactEdit = req.params.id;
+	db.all(`SELECT * FROM contacts WHERE id = ${req.params.id}`,function(err,rows){
+		if(err){
+			console.log(err)
+		}
+		else{
+			res.render('editContact.ejs',{dataJsonContacts:rows});
+		}
+	})
+	let idContactEdit = req.params.id
 	app.post('/contacts/edit/:id',function(req,res){
 		db.run(`UPDATE contacts SET name = '${req.body.name}', company = '${req.body.company}', telp_number = '${req.body.telp_number}', email = '${req.body.email}' WHERE id = ${idContactEdit}`,function(err){
 			if(err){
@@ -84,7 +91,14 @@ app.post('/groups', function (req, res) {
 })
 
 app.get('/groups/edit/:id',function(req,res){
-	res.render('editGroup.ejs');
+	db.all(`SELECT * FROM groups WHERE id = ${req.params.id}`,function(err,rows){
+		if(err){
+			console.log(err);
+		}
+		else{
+			res.render('editGroup.ejs',{dataJsonGroups:rows});
+		}
+	})
 	let idGroupEdit = req.params.id;
 	app.post('/groups/edit/:id',function(req,res){
 		db.run(`UPDATE groups SET name_of_group = '${req.body.name_of_group}' WHERE id = ${idGroupEdit}`,function(err){
@@ -130,7 +144,14 @@ app.post('/profile', function (req, res) {
 })
 
 app.get('/profile/edit/:id',function(req,res){
-	res.render('editProfile.ejs');
+	db.all(`SELECT * FROM profile WHERE id = ${req.params.id}`,function(err,rows){
+		if(err){
+			console.log(err);
+		}
+		else {
+			res.render('editProfile.ejs',{dataJsonProfiles:rows});
+		}
+	})
 	let idProfileEdit = req.params.id;
 	app.post('/profile/edit/:id',function(req,res){
 		db.run(`UPDATE profile SET username = '${req.body.username}', password = '${req.body.password}' WHERE id = ${idProfileEdit}`,function(err){
@@ -176,7 +197,14 @@ app.post('/addresses', function (req, res) {
 })
 
 app.get('/addresses/edit/:id',function(req,res){
-	res.render('editAddress.ejs');
+	db.all(`SELECT * FROM addresses WHERE id = ${req.params.id}`,function(err,rows){
+		if(err){
+			console.log(err);
+		}
+		else {
+			res.render('editAddress.ejs',{dataJsonAddresses:rows});
+		}
+	})
 	let idAddressesEdit = req.params.id;
 	app.post('/addresses/edit/:id',function(req,res){
 		db.run(`UPDATE addresses SET street = '${req.body.street}', city = '${req.body.city}', zipcode = '${req.body.zipcode}' WHERE id = ${idAddressesEdit}`,function(err){

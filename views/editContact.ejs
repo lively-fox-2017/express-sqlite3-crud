@@ -10,19 +10,19 @@
   <form action="/contacts/edit/:id" method="post">
     Name:
     <br>
-    <input type="text" name="name" value="">
+    <input type="text" name="name" value="<%= dataJsonContacts[0].name %>">
     <br>
     Company:
     <br>
-    <input type="text" name="company">
+    <input type="text" name="company" value="<%= dataJsonContacts[0].company %>">
     <br>
     Telp. Number:
     <br>
-    <input type="text" name="telp_number">
+    <input type="text" name="telp_number" value="<%= dataJsonContacts[0].telp_number %>">
     <br>
     Email:
     <br>
-    <input type="text" name="email">
+    <input type="text" name="email" value="<%= dataJsonContacts[0].email %>">
     <br><br>
     <input type="submit" value="Submit">
   </form>

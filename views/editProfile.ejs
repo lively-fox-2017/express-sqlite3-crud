@@ -10,11 +10,11 @@
   <form action="/profile/edit/:id" method="post">
     Username:
     <br>
-    <input type="text" name="username" value="">
+    <input type="text" name="username" value="<%= dataJsonProfiles[0].username %>">
     <br>
     Password:
     <br>
-    <input type="text" name="password" value="">
+    <input type="text" name="password" value="<%= dataJsonProfiles[0].password %>">
     <br><br>
     <input type="submit" value="Submit">
   </form>

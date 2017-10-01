@@ -10,15 +10,15 @@
   <form action="/addresses/edit/:id" method="post">
     Street:
     <br>
-    <input type="text" name="street" value="">
+    <input type="text" name="street" value="<%= dataJsonAddresses[0].street %>">
     <br>
     City:
     <br>
-    <input type="text" name="city">
+    <input type="text" name="city" value="<%= dataJsonAddresses[0].city %>">
     <br>
     Zipcode:
     <br>
-    <input type="text" name="zipcode">
+    <input type="text" name="zipcode" value="<%= dataJsonAddresses[0].zipcode %>">
     <br><br>
     <input type="submit" value="Submit">
   </form>
