@@ -169,6 +169,7 @@ app.get('/addresses', (req, res) => {
 /*            FORM TAMBAH ADDRESSES            */
 app.post('/addresses', (req, res) => {
   db.run(`INSERT INTO Address (street, city, zipcode) VALUES ('${req.body.street}', '${req.body.city}', '${req.body.zipcode}')`)
+  res.redirect('addresses')
   console.log(req.body);
 })
 
@@ -183,7 +184,23 @@ app.get('/addresses/delete/:id', (req, res) => {
 
 
 /*          FORM UPDATE ADDRESSES             */
-app.get('/')
+app.get('/addresses/edit/:id', (req, res) => {
+  db.all(`SELECT * FROM Address WHERE id = "${req.param('id')}"`, (err, rows) => {
+    console.log(rows);
+    res.render('editAddresses', {dataJSONAddresses:rows})
+  })
+})
+
+app.post('/addresses/edit/:id', (req, res) => {
+  var query = "UPDATE Address SET street = '" + req.body.street + "', city = '" +
+  req.body.city + "', zipcode = '" +
+  req.body.zipcode + "' WHERE id = " + req.param('id')
+  db.all(query, (err, rows) => {
+    console.log(err);
+    res.redirect('../../addresses')
+    console.log(rows.body);
+  })
+})
 
 
 app.listen(3000, function () {
