@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Addresses</title>
+</head>
+<body>
+  <h1>TABLE ADDRESSES</h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>STREET</th>
+      <th>CITY</th>
+      <th>ZIPCODE</th>
+    </tr>
+    <% for (var i = 0; i < dataJsonAddresses.length; i++) { %>
+      <tr>
+        <td><%= dataJsonAddresses[i].id %></td>
+        <td><%= dataJsonAddresses[i].street %></td>
+        <td><%= dataJsonAddresses[i].city %></td>
+        <td><%= dataJsonAddresses[i].zipcode %></td>
+        <td><a href="/addresses/edit/<%= dataJsonAddresses[i].id %>">edit</a></td>
+        <td><a href="/addresses/delete/<%= dataJsonAddresses[i].id %>">delete</a></td>
+      </tr>
+      <% } %>
+    </table>
+    <h2>ADD ADDRESS</h2>
+    <form action="/addresses" method="post">
+      Street :
+      <br>
+      <input type="text" name="street">
+      <br>
+      City:
+      <br>
+      <input type="text" name="city">
+      <br>
+      Zipcode:
+      <br>
+      <input type="text" name="zipcode">
+      <br>
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+    <h4>Navigate to Another Path Here:</h4>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/contacts">View Contacts Database</a></li>
+      <li><a href="/groups">View Groups Database</a></li>
+      <li><a href="/profile">View Profiles Database</a></li>
+      <li><a href="/addresses">View Addresses Database</a></li>
+    </ul>
+  </body>
+  </html>
