@@ -17,7 +17,6 @@ app.get('/contacts', function(req, res){
   db.all(query,function(err, rows){
     res.render('./contacts',{contacts:rows, err:err});
   })
-
 }).
 post('/contacts', function(req, res){
   let query = `insert into contacts (name, company, telp_number, email) values ('${req.body.name}', '${req.body.company}', '${req.body.telp_number}', '${req.body.email}');`;
@@ -68,5 +67,65 @@ get('/groups/delete/:id', function(req, res){
   db.run(`delete from groups where id=${req.params.id.slice(1,req.params.id.length)};`);
   res.redirect('/groups');
 });
+
+//==================++++++++++++++++++++-------------------@@@@@@@@@@@@@@@@@@@@@@@@@@###########
+
+app.get('/addresses', function(req, res){
+  let query = 'select * from addresses;';
+  db.all(query,function(err, rows){
+    res.render('./addresses',{addresses:rows, err:err});
+  })
+}).
+post('/addresses', function(req, res){
+  let query = `INSERT INTO addresses (street, city, zipcode) VALUES ('${req.body.street}', '${req.body.city}', '${req.body.zipcode}');`;
+  db.run(query, function(){});
+  res.redirect('/addresses');
+}).
+get('/addresses/edit/:id', function(req, res){
+  let query = `SELECT * FROM addresses where id=${req.params.id.slice(1,req.params.id.length)};`;
+  db.all(query,
+  function(err, rows){
+    res.render('./addresses-edit.ejs',{addresses:rows[0]});
+  });
+}).
+post('/addresses/edit/:id', function(req, res){
+  console.log(req.params);
+  let query = `UPDATE addresses SET street='${req.body.street}', city='${req.body.city}', zipcode='${req.body.zipcode}' WHERE id=${req.params.id.slice(1,req.params.id.length)};`;
+  db.run(query, function(){});
+  res.redirect('/addresses');
+}).
+get('/addresses/delete/:id', function(req, res){
+  db.run(`delete from addresses where id=${req.params.id.slice(1,req.params.id.length)};`);
+  res.redirect('/addresses');
+}).
+get('/profiles', function(req, res){
+  let query = 'select * from profiles;';
+  db.all(query,function(err, rows){
+    res.render('./profiles',{profiles:rows, err:err});
+  })
+}).
+post('/profiles', function(req, res){
+  let query = `INSERT INTO profiles (username, password) VALUES ('${req.body.username}', '${req.body.password}');`;
+  db.run(query, function(){});
+  res.redirect('/profiles');
+}).
+get('/profiles/edit/:id', function(req, res){
+  let query = `SELECT * FROM profiles where id=${req.params.id.slice(1,req.params.id.length)};`;
+  db.all(query,
+  function(err, rows){
+    res.render('./profiles-edit.ejs',{profiles:rows[0]});
+  });
+}).
+post('/profiles/edit/:id', function(req, res){
+  console.log(req.params);
+  let query = `UPDATE profiles SET username='${req.body.username}', password='${req.body.password}' WHERE id=${req.params.id.slice(1,req.params.id.length)};`;
+  db.run(query, function(){});
+  res.redirect('/profiles');
+}).
+get('/profiles/delete/:id', function(req, res){
+  db.run(`delete from profiles where id=${req.params.id.slice(1,req.params.id.length)};`);
+  res.redirect('/profiles');
+})
+
 
 app.listen(3000);
