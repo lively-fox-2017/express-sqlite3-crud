@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+  </head>
+  <body>
+    <br>
+    <h2>Add New Address</h2>
+    <form action="/addresses/edit/<%= data.id %>" method="post">
+      <table>
+        <input type="hidden" name="id" value="<%= data.id %>">
+        <tr>
+          <td>Street</td>
+          <td>:</td>
+          <td><input type="text" name="street" value="<%= data.street %>"></td>
+        </tr>
+        <tr>
+          <td>City</td>
+          <td>:</td>
+          <td><input type="text" name="city" value="<%= data.city %>"></td>
+        </tr>
+        <tr>
+          <td>Zipcode</td>
+          <td>:</td>
+          <td><input type="text" name="zipcode" value="<%= data.zipcode %>"></td>
+        </tr>
+        <tr>
+          <td colspan="3"><input type="submit" name="submit" value="Update"></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

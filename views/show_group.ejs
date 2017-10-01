@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+  </head>
+  <body>
+    <br>
+    <h2>Add New Group</h2>
+    <form action="/groups/edit/<%= data.id %>" method="post">
+      <table>
+        <input type="hidden" name="id" value="<%= data.id %>">
+        <tr>
+          <td>Name</td>
+          <td>:</td>
+          <td><input type="text" name="name_of_group" value="<%= data.name_of_group %>"></td>
+        </tr>
+        <tr>
+          <td colspan="3"><input type="submit" name="submit" value="Update"></td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

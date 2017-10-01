@@ -3,9 +3,9 @@
 // console.log("--", db);
 
 function create_profile_table(db) {
-  let query = 'CREATE TABLE IF NOT EXISTS profile (' +
+  let query = 'CREATE TABLE IF NOT EXISTS profiles (' +
     'id integer PRIMARY KEY AUTOINCREMENT,' +
-    'username TEXT' +
+    'username TEXT,' +
     'password TEXT)';
   db.run(query, (err) => {
     if (err)
